@@ -23,3 +23,17 @@ venv/
 .env
 
 models/*
+*.gguf
+*.safetensors
+models/
+.env
+.env.local
+.env.*.local
+frontend/dist/
+frontend/.vite/
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+.DS_Store
+Thumbs.db
