@@ -125,3 +125,4 @@ File-tailing is single-instance and non-concurrent. Redis channels are multi-pro
 | `JWT_SECRET` | ✅ | Secret for JWT signing |
 | `QDRANT_URL` | ❌ | Qdrant vector DB URL (default: `http://qdrant:6333`) |
 | `ALLOWED_ORIGINS` | ❌ | CORS origins (default: `http://localhost:5173`) |
+
