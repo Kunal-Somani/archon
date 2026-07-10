@@ -2,6 +2,8 @@
 
 Autonomous instruction-to-deployment pipeline. Accepts a natural language brief, retrieves relevant context via hybrid RAG, generates schema-validated code through Anthropic Tool Use, and deploys a live web application to GitHub Pages — without any manual steps.
 
+---
+
 ## Architecture
 
 ```mermaid
@@ -34,6 +36,8 @@ graph TD
     Frontend -->|Task Status| API
 ```
 
+---
+
 ## System Components
 
 | Component | Role | Stack |
@@ -47,6 +51,8 @@ graph TD
 | Real-Time Logs | Per-task log streaming | Redis Pub/Sub, WebSocket |
 | Observability | Metrics, traces, dashboards | Prometheus, Grafana, OpenTelemetry |
 | Frontend Dashboard | Task management and monitoring UI | React 19, TypeScript, Tailwind v4 |
+
+---
 
 ## Design Decisions
 
@@ -64,6 +70,8 @@ GitHub Apps issue short-lived installation access tokens with repository-scoped 
 
 **Redis Pub/Sub for log streaming:**  
 File-tailing is single-instance and non-concurrent. Redis channels are multi-producer / multi-consumer — any worker process can publish, any WebSocket connection can subscribe to any task's log channel.
+
+---
 
 ## Quick Start
 
@@ -99,6 +107,8 @@ File-tailing is single-instance and non-concurrent. Redis channels are multi-pro
      -d '{"task_name": "Portfolio Site", "email": "me@example.com", "nonce": "abc123", "instruction": "Build a dark-themed personal portfolio"}'
 ```
 
+---
+
 ## API Endpoints
 
 | Endpoint | Method | Auth | Purpose |
@@ -110,6 +120,8 @@ File-tailing is single-instance and non-concurrent. Redis channels are multi-pro
 | `/metrics` | `GET` | — | Prometheus metrics scrape endpoint |
 | `/health` | `GET` | — | Service health check |
 | `/ws/logs?task_id={id}` | `WS` | — | Live log stream for a specific task |
+
+---
 
 ## Environment Variables
 
